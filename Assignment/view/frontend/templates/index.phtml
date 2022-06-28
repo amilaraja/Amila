@@ -2,11 +2,11 @@
 
 <form action="<?php echo $block->getFormAction() ?>" method="post">
     <label for="livechat_license_number">License No</label>
-    <input name="livechat_license_number" id="livechat_license_number" type="text" required>
+    <input name="livechat_license_number" id="livechat_license_number" type="text"><br/>
     <label for="livechat_groups" >Group</label>
-    <input name="livechat_groups" id="livechat_groups" type="text">
+    <input name="livechat_groups" id="livechat_groups" type="text"><br/>
     <label for="livechat_params">Params</label>
-    <input name="livechat_params"  id="livechat_params" type="text">
+    <input name="livechat_params"  id="livechat_params" type="text"><br/>
     <input name="form_key" type="hidden" value="<?php echo $block->getFormKey();?>">
-    <input type="submit" value="Save">
+    <input type="submit" value="Save" class="primary action">
 </form>
