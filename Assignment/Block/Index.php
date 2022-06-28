@@ -27,9 +27,7 @@ class Index extends \Magento\Framework\View\Element\Template
      */
     public function getFormAction()
     {
-
         return '/assignment/save/save';
-
     }
 
     /**
