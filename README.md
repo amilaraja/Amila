@@ -5,7 +5,7 @@
 2.  upload _Assignment_ directory to app/code/Amila
     
 3.  Run following commands on terminal from your magento root to install and enable the module
-   ` php bin/magento setup:update`
+   ` php bin/magento setup:upgrade`
     
 4. if your magento app is on default or production mode,  please execute below additional steps
    `php bin/magento setup:di:compile && php bin/magento setup:static-content:deploy`
