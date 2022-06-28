@@ -1,7 +1,7 @@
 <?php
-namespace Amila\Assignment\Controller\Index;
+namespace Amila\Assignment\Controller\Save;
 
-class Index extends \Magento\Framework\App\Action\Action
+class Save extends \Magento\Framework\App\Action\Action
 {
     protected $_pageFactory;
 
@@ -16,16 +16,11 @@ class Index extends \Magento\Framework\App\Action\Action
     public function execute()
     {
 
-        return $this->_pageFactory->create();
-
-    }
-
-    public function saveAction()
-    {
         die("XSE");
-        return $this->_pageFactory->create();
 
     }
+
+
 
 
 }
