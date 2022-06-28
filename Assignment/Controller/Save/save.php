@@ -33,20 +33,22 @@ class Save extends \Magento\Framework\App\Action\Action
     {
         $request = $this->getRequest();
 
-        if ($this->formKeyValidator->validate($request)) {
+        if (!$this->formKeyValidator->validate($request)) {
 
             $this->messageManager->addErrorMessage(__("Invalid Form Key, Please refresh and try again"));
-
             $this->getResponse()->setRedirect(
                 $this->_redirect->getRefererUrl()
             );
             return;
-
-        }else{
-            echo "Form Key Passed";
-
         }
 
+        $livechat_license_number    =   $this->getRequest()->getPost('livechat_license_number','');
+        $livechat_groups            =   $this->getRequest()->getPost('livechat_groups','0');
+        $livechat_params            =   $this->getRequest()->getPost('livechat_params','');
+
+        echo "<br>livechat_license_number : " . $livechat_license_number;
+        echo "<br>livechat_groups : " . $livechat_groups;
+        echo "<br>livechat_params : " . $livechat_params;
 
         die("XSE");
 
