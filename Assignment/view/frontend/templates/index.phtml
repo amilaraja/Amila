@@ -1,9 +1,12 @@
-<h1>Booking page</h1>
+<h1>Live Chat License Data</h1>
 
 <form action="<?php echo $block->getFormAction() ?>" method="post">
+    <label for="livechat_license_number">License No</label>
     <input name="livechat_license_number" id="livechat_license_number" type="text" required>
-    <input name="lastname" type="text">
-    <input name="phone" type="text">
-    <input name="bookingTime" type="date">
-    <input type="submit" value="Send booking informations">
+    <label for="livechat_groups" >Group</label>
+    <input name="livechat_groups" id="livechat_groups" type="text">
+    <label for="livechat_params">Params</label>
+    <input name="livechat_params"  id="livechat_params" type="text">
+    <input name="form_key" type="hidden" value="<?php echo $block->getFormKey();?>">
+    <input type="submit" value="Save">
 </form>
