@@ -85,9 +85,9 @@ class Save extends \Magento\Framework\App\Action\Action
         $this->configWriter->save("livechat/advanced/params", $livechat_params,ScopeConfigInterface::SCOPE_TYPE_DEFAULT,0);
 
         //Clean Cache - only config cache
-        $this->cacheManager->clean(['layout']);
+        $this->cacheManager->clean(['config']);
         //Flush Cache - only config cache
-        $this->cacheManager->flush(['layout']);
+        $this->cacheManager->flush(['config']);
 
         $this->messageManager->addSuccessMessage(__("License data saved successfully."));
         //Redirect to previous URL
