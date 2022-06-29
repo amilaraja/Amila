@@ -1,6 +1,8 @@
 <?php
 namespace Amila\Assignment\Controller\Save;
 
+use Magento\Framework\App\Config\ScopeConfigInterface;
+
 class Save extends \Magento\Framework\App\Action\Action
 {
     protected $_pageFactory;
