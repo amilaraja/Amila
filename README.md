@@ -7,11 +7,11 @@
 
     
 3.  Run following commands on terminal from your magento root to install and enable the module
-      ` php bin/magento setup:upgrade`  
+      ` php bin/magento setup:upgrade && php bin/magento setup:di:compile`  
     
     
-4. if your magento app is on default or production mode,  please execute below additional steps
-   `php bin/magento setup:di:compile && php bin/magento setup:static-content:deploy`
+4. if your magento app is on  production mode,  please execute below additional steps
+   `php bin/magento setup:static-content:deploy`
    
 
 5. Clean & flush magento cache using below commands    
