@@ -1,8 +1,6 @@
 <?php
 namespace Amila\Assignment\Controller\Save;
 
-use Magento\Framework\App\Config\ScopeConfigInterface;
-
 class Save extends \Magento\Framework\App\Action\Action
 {
     protected $_pageFactory;
@@ -19,11 +17,23 @@ class Save extends \Magento\Framework\App\Action\Action
      * @var \Magento\Framework\Message\ManagerInterface
      */
     protected $messageManager;
-
+    /**
+     * For reading config values
+     *
+     * @var \Magento\Framework\App\Config\ScopeConfigInterface
+     */
     protected $scopeConfig;
-
+    /**
+     * For writing config values
+     *
+     * @var \Magento\Framework\App\Config\Storage\WriterInterface
+     */
     protected $configWriter;
-
+    /**
+     * For Cache clean & Flush
+     *
+     * @var \Magento\Framework\App\Cache\Manager
+     */
     protected $cacheManager;
 
 
@@ -56,13 +66,10 @@ class Save extends \Magento\Framework\App\Action\Action
         if (!$this->formKeyValidator->validate($request)) {
 
             $this->messageManager->addErrorMessage(__("Invalid Form Key, Please refresh and try again"));
-            //Redirect to previous URL
-            $this->getResponse()->setRedirect(
-                $this->_redirect->getRefererUrl()
-            );
+            //Redirect to module index
+            $this->_redirect("assignment/index/index");
             return;
         }
-
 
         //Retrieving post variables and setting defaults
         $livechat_license_number    =   $this->getRequest()->getPost('livechat_license_number','');
@@ -73,9 +80,7 @@ class Save extends \Magento\Framework\App\Action\Action
         if(trim($livechat_license_number) == '' ){
             $this->messageManager->addErrorMessage(__("License Number is a required field, Please enter license number and try again"));
             //Redirect to previous URL
-            $this->getResponse()->setRedirect(
-                $this->_redirect->getRefererUrl()
-            );
+            $this->_redirect("assignment/index/index");
             return;
         }
 
@@ -86,20 +91,16 @@ class Save extends \Magento\Framework\App\Action\Action
 
         //Clean Cache - only config cache
         $this->cacheManager->clean(['config']);
+
         //Flush Cache - only config cache
         $this->cacheManager->flush(['config']);
 
         $this->messageManager->addSuccessMessage(__("License data saved successfully."));
-        //Redirect to previous URL
-        $this->getResponse()->setRedirect(
-            $this->_redirect->getRefererUrl()
-        );
-        return;
+        //Redirect to module index
 
+        $this->_redirect("assignment/index/index");
 
     }
-
-
 
 
 }
