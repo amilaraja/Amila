@@ -18,7 +18,7 @@
    php bin/magento c:c && php bin/magento c:f
    
 
-6. Visit <your magento base url>/assignment/index/index to view the form which helps to test the ported code.
+6. Visit http://{your magento base url}/assignment/index/index to view the form which helps to test the ported code.
 
 
 7. Fill various test data and press save button to exercise the ported code 
